@@ -1,4 +1,4 @@
-require 'net/http'
+require "net/http"
 
 module Graphql
   CURRENT_ACCOUNT_QUERY = <<-'GRAPHQL'
@@ -71,4 +71,3 @@ fragment AccountFragment on Account {
     end
   end
 end
-
