@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lightspark_id: MyString
+  account_name: MyString
+  account_created_at: 2025-02-25 17:55:59
+  account_updated_at: 2025-02-25 17:55:59
+
+two:
+  lightspark_id: MyString
+  account_name: MyString
+  account_created_at: 2025-02-25 17:55:59
+  account_updated_at: 2025-02-25 17:55:59

@@ -23,6 +23,11 @@ fragment AccountFragment on Account {
   end
 
   class Account
+    attr_reader :account_id,
+      :account_name,
+      :account_created_at,
+      :account_updated_at
+
     # {"__typename" => "Account",
     #  "account_id" => "Account:01936685-d030-9af2-0000-8ffdcbba6208",
     #  "account_created_at" => "2024-11-26T03:31:05.904429+00:00",
