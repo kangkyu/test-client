@@ -47,8 +47,6 @@ fragment AccountFragment on Account {
       end
     end
 
-    # Public: Extension point for subclasses to customize the Net:HTTP client
-    #
     # Returns a Net::HTTP object
     def connection
       Net::HTTP.new(uri.host, uri.port).tap do |client|
