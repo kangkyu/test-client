@@ -17,6 +17,25 @@ fragment AccountFragment on Account {
 }
   GRAPHQL
 
+  def self.current_account
+    c = LightsparkClient.new("https://api.lightspark.com/graphql/server/2023-09-13")
+    c.current_account
+  end
+
+  class Account
+    # {"__typename" => "Account",
+    #  "account_id" => "Account:01936685-d030-9af2-0000-8ffdcbba6208",
+    #  "account_created_at" => "2024-11-26T03:31:05.904429+00:00",
+    #  "account_updated_at" => "2025-01-19T00:33:34.836034+00:00",
+    #  "account_name" => "Lining Link LLC"}
+    def initialize(options = {})
+      @account_id = options[:account_id]
+      @account_name = options[:account_name]
+      @account_created_at = DateTime.parse options[:account_created_at]
+      @account_updated_at = DateTime.parse options[:account_updated_at]
+    end
+  end
+
   class LightsparkClient
     attr_reader :uri
 
@@ -55,7 +74,10 @@ fragment AccountFragment on Account {
     end
 
     def current_account
-      execute(CURRENT_ACCOUNT_QUERY)
+      parsed = execute(CURRENT_ACCOUNT_QUERY)
+      if parsed["errors"].blank?
+        Account.new symbolize_keys(parsed["data"]["current_account"])
+      end
     end
 
     private
@@ -66,6 +88,12 @@ fragment AccountFragment on Account {
 
     def api_token
       ENV["LIGHTSPARK_API_TOKEN_CLIENT_SECRET"]
+    end
+
+    def symbolize_keys(hash)
+      {}.tap do |new_hash|
+        hash.each_key { |key| new_hash[key.to_sym] = hash[key] }
+      end
     end
   end
 end
