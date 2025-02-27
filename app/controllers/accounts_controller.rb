@@ -8,7 +8,7 @@ class AccountsController < ApplicationController
   private
 
   def set_account
-    lsp_account = Graphql.current_account
+    lsp_account = client.current_account
     unless Account.exists?(lightspark_id: lsp_account.account_id)
       Account.create!(
         lightspark_id: lsp_account.account_id,
@@ -18,5 +18,9 @@ class AccountsController < ApplicationController
       )
     end
     @account = Account.find_by lightspark_id: lsp_account.account_id
+  end
+
+  def client
+    @client ||= Lightspark::GraphqlClient.new
   end
 end

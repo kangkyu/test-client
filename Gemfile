@@ -33,3 +33,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+
+# gem "lightspark", "~> 0.1.0", :path => "../lightspark-ruby"
+
+gem "lightspark", "~> 0.1.0", :git => "https://github.com/kangkyu/lightspark-ruby.git"
