@@ -7,10 +7,7 @@ Ruby on Rails app as a GraphQL API client.
 
 ### Run locally
 
-Go to https://app.lightspark.com/api-config and get values for
-
-- `LIGHTSPARK_API_TOKEN_CLIENT_ID`
-- `LIGHTSPARK_API_TOKEN_CLIENT_SECRET`
+This app uses "lightspark" Ruby gem. See https://github.com/kangkyu/lightspark-ruby
 
 ```
 LIGHTSPARK_API_TOKEN_CLIENT_ID='012345abc...' \
@@ -28,7 +25,7 @@ u.auth_token
 # => "Cgfi27gkYBoDKxrYWigZvDJ5"
 ```
 
-And then fetch info from the endpoint (More to come).
+And then fetch info from the "current_account" endpoint (More to come).
 
 ```
 curl localhost:3000 -H "Authorization: Token Cgfi27gkYBoDKxrYWigZvDJ5"
