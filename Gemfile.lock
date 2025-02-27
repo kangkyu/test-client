@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kangkyu/lightspark-ruby.git
-  revision: 5267d3539603b50cf137b4777cf42375e6835c62
+  revision: f169fc9aa78744baef51ce3dd6a2ee69b2e7cc13
   specs:
     lightspark (0.1.0)
 
